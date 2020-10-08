@@ -1,23 +1,34 @@
-import {CHANGE_TAG} from "./actionTypes";
+import {SHOW_MESSAGE, HIDE_MESSAGE} from "./actionTypes";
 
 const initialState = {
-    tag: ''
+    message: '',
+    typeAlert: '',
+    isVisible: false
 };
-const buttonsReducer = (state = initialState, action) => {
+const alertReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CHANGE_TAG:
+        case SHOW_MESSAGE:
             return {
                 ...state,
-                tag: action.tag
+                message: action.message,
+                typeAlert: action.typeAlert,
+                isVisible: true
+            };
+        case HIDE_MESSAGE:
+            return {
+                ...state,
+                isVisible: false
             };
         default:
             return state;
     }
 };
 
-export const changeTag = (tag) => ({
-    type: CHANGE_TAG,
-    tag
+export const showMsg = (message, typeAlert = 'info') => ({
+    type: SHOW_MESSAGE,
+    message,
+    typeAlert
 });
+export const hideMsg = () => ({type: HIDE_MESSAGE});
 
-export default buttonsReducer;
+export default alertReducer;

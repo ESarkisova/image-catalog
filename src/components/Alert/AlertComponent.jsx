@@ -1,14 +1,14 @@
 import React from 'react';
-import { Alert } from '@material-ui/lab';
 import {connect} from "react-redux";
 import {hideMsg} from "../../Redux/alertReducer";
+import Alert from '@material-ui/lab/Alert';
 
-const AlertComponent = ({message, alertType, hideMsg, isVisible}) => {
+const AlertComponent = ({message, typeAlert, hideMsg, isVisible}) => {
     if(!isVisible) return null;
     return (
         <Alert
             onClose={hideMsg}
-            severity={alertType}>{message}</Alert>
+            severity={typeAlert}>{message}</Alert>
     );
 };
 

@@ -1,31 +1,28 @@
 import React from 'react';
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
 import {makeStyles} from "@material-ui/core/styles";
+import Image from "./Image";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
     root: {
-        width: 300,
-        margin: '10px',
-        display: 'inline-block',
-        cursor: 'pointer'
+        padding: 20,
+        margin: '20px 0'
     },
-    media: {
-        width: '100%',
-        height: '200px'
+    text: {
+        textAlign: 'left'
     }
 });
-const Image = ({image, changeTag}) => {
-    console.log(image.url);
+const ImageGroup = ({images, groupName, changeTag}) => {
     const classes = useStyles();
     return (
-            <Card className={classes.root} onClick={() => {changeTag(image.tag)}}>
-                <CardMedia className={classes.media}
-                    image={image.url}
-                    title="Image"
-                />
-            </Card>
+        <Card className={classes.root}>
+            <Typography gutterBottom variant="h5" component="h5" className={classes.text}>
+                {groupName}
+            </Typography>
+            { images.map( image => <Image key = {image.id} image = {image} changeTag = {changeTag}/>) }
+        </Card>
     );
 };
 
-export default Image;
+export default ImageGroup;
