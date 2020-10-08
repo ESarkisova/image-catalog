@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const API_KEY = 'dc6zaTOxFJmzC';
 const URL = 'https://api.giphy.com/v1/gifs/random';
 

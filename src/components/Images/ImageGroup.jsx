@@ -13,6 +13,7 @@ const useStyles = makeStyles({
         textAlign: 'left'
     }
 });
+
 const ImageGroup = ({images, groupName, changeTag}) => {
     const classes = useStyles();
     return (
